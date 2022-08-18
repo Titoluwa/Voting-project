@@ -26,6 +26,13 @@
         <div class="col-md-10">
             
             <div class="card p-3 border-primary shadow">
+            @if ($year == null)
+                <div class="card-body m-5" style="padding: 100px 50px">
+                    <h1 class="text-primary text-center">Results cannot be viewed</h1>
+                    <h2 class="text-primary text-center"> Election Period has not been set</h2>
+                    <h5 class="text-primary text-center">Email the Administrator</h5>
+                </div>
+            @else
                 <div class="card-body">
                     <h4 class="text-primary text-center p-3">Results of {{ $year->year }} election</h4>
                     
@@ -76,6 +83,8 @@
                     @endif
                     
                 </div>
+            @endif
+                
             </div>
 
         </div>

@@ -1,12 +1,14 @@
     <div class="text-center p-4">
-        Oluwaranti Toluwani A. <br>
+        <br>
+        <a href="mailto:titoluwaranti@gmail.com?subject=Mail from Voting Site">titoluwaranti@gmail.com</a>
+        <br>
         
-        <i class="fab fa-instagram-square"></i>
+        <a href=""><i class="fab fa-instagram-square"></i></a>
 
-        <i class="fab fa-whatsapp-square"></i>
+        <a href=""><i class="fab fa-whatsapp-square"></i> </a>
         
-        <i class="fab fa-twitter-square"></i>
+        <a href=""><i class="fab fa-twitter-square"></i> </a>
         
         <br>
-        Copyright &copy; Footer.
+        &copy; Oluwaranti Toluwani A. 
     </div>

@@ -27,13 +27,24 @@ class UserRegController extends Controller
 
         $users = $candidates->pluck('user_id')->all(); // an array of the user-id (to have all users identification)
         $id = Auth::user()->id;
-
-        $startDate = $election_year->start_date;
-        $endDate = $election_year->end_date;
-        $currentdate = Carbon::now();
-        $start_date_check = $currentdate->gt($startDate);
-        $end_date_check = $currentdate->gt($endDate);
-
+    
+        if($election_year == null)
+        {
+            $startDate = NULL;
+            $endDate = NULL;
+            $currentdate = Carbon::now();
+            $start_date_check = NULL;
+            $end_date_check = NULL; 
+            
+        } else
+        {
+            $startDate = $election_year->start_date;
+            $endDate = $election_year->end_date;
+            $currentdate = Carbon::now();
+            $start_date_check = $currentdate->gt($startDate);
+            $end_date_check = $currentdate->gt($endDate);
+        }
+        
         return view('user/register', compact('offices','candidates', 'election_year','id','users','end_date_check','start_date_check'));
 
     }

@@ -23,6 +23,19 @@
         <div class="title pb-3 text-center text-primary">
             Welcome to the Voting Platform !
         </div>
+        <div class="words">
+            {{-- <p>Hi, so this is my first Laravel Project.</p>
+            <p>It is a voting web application that is built based on the enviroment of a university for a student body election process.</p> --}}
+            <p>
+                &nbsp; &nbsp; &nbsp; &nbsp; To procced to voting for your preferred candidate, each student must first
+                register and indicate if they want to contest and for which office they would be contesting 
+                for. The registration period will be made known to the students. 
+                After the sitpulated time for registration has elasped, a date and time would be set 
+                for voting. Each will student will login and vote for their candidate.
+                And once the voting lines is closed, everyone can check the results
+                on the website after it has been made available.
+            </p>
+        </div>
         <div class="col-md-8">
             
             <div class="card shadow">

@@ -52,7 +52,13 @@
                 font-size: 84px;
                 color:#3490dc;
             }
-
+            .words{
+                font-size: 20px;
+                color:#0764af;
+                padding: 0 95px;
+                margin: 0 95px;
+                text-align: justify;
+            }
             .links > a {
                 color:#3490dc;
                 padding: 0 25px;
@@ -87,6 +93,16 @@
             <div class="content">
                 <div class="title m-b-md">
                     Welcome to the Voting Platform !
+                </div>
+                <div class="words">
+                    <p>Hi, so this is my first Laravel Project.</p>
+                    <p>It is a voting web application that is built based on the enviroment of a university for a student body election process.</p>
+                    <p>
+                        This website was created to allow all student any department in the university 
+                        to vote for their preferred candidate for each position in the
+                        student body association a university (but Obafemi Awolowo University was my case study). 
+                        Every student has a right to vote and every student will vote count. 
+                    </p>
                 </div>
             </div>
         </div>

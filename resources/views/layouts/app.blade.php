@@ -33,6 +33,13 @@
             background-color: rgba(255, 255, 255, 0.9);
             border: 3px solid #3490dc;
         }
+        .words{
+            font-size: 18px;
+            color:#0764af;
+            padding: 0 95px;
+            margin: 0 95px;
+            text-align: justify;
+        }
     </style>
 
 </head>
@@ -41,9 +48,9 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <!-- <a class="navbar-brand text-primary" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Voting') }}
                 </a> -->
-                <a class="navbar-brand text-primary" href="{{ route('user') }}">
+                <a class="navbar-brand text-primary" href="/">
                    <i class="fa fa-vote-yea"></i> Voting
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

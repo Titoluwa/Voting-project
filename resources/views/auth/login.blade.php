@@ -3,14 +3,28 @@
 @section('content')
 <div class="container p-5">
     <div class="row justify-content-center">
+        <div class="pb-3 text-center text-primary">
+           <h3> <i class="fa fa-user-circle"></i> {{ __('Login') }} </h3>
+        </div>
+        <div class="words pb-3">
+            {{-- <p>Hi, so this is my first Laravel Project.</p>
+            <p>It is a voting web application that is built based on the enviroment of a university for a student body election process.</p> --}}
+            <p>
+               &nbsp; &nbsp; &nbsp; &nbsp; This website was created to allow all student any department in the university 
+                to vote for their preferred candidate for each position in the
+                student body association a university (but Obafemi Awolowo University was my case study). 
+                Every student has a right to vote and every student will vote count. 
+            </p>
+        </div>
+        <br>
         <div class="col-md-8">
             <div class="card border-primary">
                 <div class="card-header">
-                    <h5 class="text-center text-primary">
-                        <i class="fa fa-user-circle"></i> {{ __('Login') }}</h5>
+                    {{-- <h5 class="text-center text-primary">
+                        <i class="fa fa-user-circle"></i> {{ __('Login') }}</h5> --}}
                 </div>
-
-                <div class="card-body">
+                
+                <div class="card-body mt-2">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -67,6 +81,9 @@
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="card-footer">
+                   
                 </div>
             </div>
         </div>

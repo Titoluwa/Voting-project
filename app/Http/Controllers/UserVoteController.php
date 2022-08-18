@@ -23,26 +23,42 @@ class UserVoteController extends Controller
         $candidates = Candidate::all();
         $election_year = ElectionYear::where('status', 1)->first();
         $year = ElectionYear::where('status', 1)->pluck('id')->first();
-        $offices = Candidate::where('election_year_id', $year)->select('office_id')->groupBy('office_id')->get();
         $votes = Votes::all();
-        
-        //To check the date for election voting. 
-        $startDate = $election_year->start_date;
-        $endDate = $election_year->end_date;
-        // $currentdate = Carbon::createFromFormat('d-m-Y', '30-09-2021');
-        $currentdate = Carbon::now();
-        $start_date_check = $currentdate->lte($startDate);
-        $end_date_check = $currentdate->gt($endDate);
-        
-        //  To get the array of offices the user has voted for.
-        $id = Auth::user()->id;
-        $candi_voted =  $votes->where('election_year_id', $year)->where('user_id', $id)->pluck('candidate_id')->all(); // array of office id the user has voted for.
-        $officers = array();
-        foreach($candi_voted as $cv){
-            $off = $candidates->where('id', $cv)->pluck('office_id')->first();
-            array_push($officers, $off);
+    
+        if($election_year == null OR $year == null)
+        {
+            $offices = null;
+            $startDate = NULL;
+            $endDate = null;
+            $currentdate = Carbon::now();
+            $start_date_check = null;
+            $end_date_check = null;
+            
+            $id = Auth::user()->id;
+            $candi_voted =  null;
+            $officers = array();
+        } else
+        {
+            $offices = Candidate::where('election_year_id', $year)->select('office_id')->groupBy('office_id')->get();
+
+            //To check the date for election voting. 
+            $startDate = $election_year->start_date;
+            $endDate = $election_year->end_date;
+            // $currentdate = Carbon::createFromFormat('d-m-Y', '30-09-2021');
+            $currentdate = Carbon::now();
+            $start_date_check = $currentdate->lte($startDate);
+            $end_date_check = $currentdate->gt($endDate);
+            
+            //  To get the array of offices the user has voted for.
+            $id = Auth::user()->id;
+            $candi_voted =  $votes->where('election_year_id', $year)->where('user_id', $id)->pluck('candidate_id')->all(); // array of office id the user has voted for.
+            $officers = array();
+            foreach($candi_voted as $cv){
+                $off = $candidates->where('id', $cv)->pluck('office_id')->first();
+                array_push($officers, $off);
+            }
         }
-        // dd($candi_voted);
+       
         return view('user/vote', compact(
             'offices','officers','election_year','candidates',
             'votes','id','candi_voted',

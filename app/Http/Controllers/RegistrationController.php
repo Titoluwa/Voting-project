@@ -15,13 +15,13 @@ class RegistrationController extends Controller
 {
     public function index()
     {
-        $faculty = DB::table('department')->groupBy('faculty')->get();
+        $faculty = DB::table('department')->selectRaw('faculty')->groupBy('faculty')->get();
         $user = new User();
         return view('registration', compact('user','faculty'));
     }
     public function fetch(Request $request){
         $value = $request->get('value');
-        $dept = DB::table('department')->where('faculty', $value)->groupBy('department')->get();
+        $dept = DB::table('department')->select('department')->where('faculty', $value)->groupBy('department')->get();
         $output = '<option value="" selected disabled hidden> Select Department </option>';
         foreach($dept as $d){
             $output .= '<option value="' .$d->department.'">' .$d->department.' </option>';
