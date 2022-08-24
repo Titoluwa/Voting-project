@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
                     @if($office == null)
-                        <h5 class="text-center text-primary">No Candiddate Registered </h5>
+                        <h5 class="text-center text-primary">No Candidate Registered </h5>
                     @else
                         <ol>
                             

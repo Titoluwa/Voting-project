@@ -31,7 +31,7 @@ class RegistrationController extends Controller
     public function store(Request $request)
     {
         $user = User::create($this->validateRequest());
-        $user->role = 1;
+        $user->role = 2;
         $user->last_name = Str::ucfirst($request->last_name);
         $user->first_name = Str::ucfirst($request->first_name);
         $user->password = Hash::make($request->password);

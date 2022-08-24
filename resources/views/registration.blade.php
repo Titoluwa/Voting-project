@@ -59,18 +59,18 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="col-md-12 pb-2">
-                                <label for="faculty" class="form-label">{{ __('Faculty') }}</label>
-                                <input type="text" name="faculty" id="faculty" class="form-control">
-                                    
-                                    @error('faculty')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            
                             {{-- <div class="col-md-12 pb-2">
+                            <label for="faculty" class="form-label">{{ __('Faculty') }}</label>
+                            <input type="text" name="faculty" id="faculty" class="form-control">
+                                
+                                @error('faculty')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div> --}}
+                            
+                            <div class="col-md-12 pb-2">
                             <label for="faculty" class="form-label">{{ __('Faculty') }}</label>
                                 <select name="faculty" id="faculty" value="{{ old('faculty') }}" class="form-control dynamic" data-dependant='department' >
                                     <option value="{{ old('faculty') }}" disabled selected hidden>Select Faculty</option>
@@ -83,9 +83,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>  --}}
+                            </div> 
 
-                            <div class="col-md-8 pb-2">
+                            {{-- <div class="col-md-8 pb-2">
                             <label for="department" class="form-label">{{ __('Department') }}</label>
                                 <input type="text" name="department" id="department" class="form-control">
 
@@ -94,8 +94,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                            {{-- <div class="col-md-8 pb-2">
+                            </div> --}}
+                            
+                            <div class="col-md-8 pb-2">
                             <label for="department" class="form-label">{{ __('Department') }}</label>
                                 <select class="form-control" name="department" id="department">
                                     <option value="" disabled selected hidden>Select Department</option>
@@ -106,7 +107,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>          --}}
+                            </div>         
 
                             <div class="col-md-4 pb-2">
                                 <label class="form-label" for="level">{{ __('Year') }}</label>
