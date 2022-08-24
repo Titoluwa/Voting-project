@@ -34,13 +34,11 @@ class RegistrationController extends Controller
         $user->role = 1;
         $user->last_name = Str::ucfirst($request->last_name);
         $user->first_name = Str::ucfirst($request->first_name);
-        $user->faculty = 'Faculty';
-        $user->department = 'Department';
         $user->password = Hash::make($request->password);
         $user->save();
 
         $email = $request->email;
-        Mail::to($email)->send(new UserRegMail($user));
+        // Mail::to($email)->send(new UserRegMail($user));
 
         return redirect('login');
     }
@@ -50,8 +48,8 @@ class RegistrationController extends Controller
             'email' => 'required|email|max:30|unique:users',
             'last_name' => 'required|string|max:100',
             'first_name' => 'required|string|max:100',
-            // 'faculty' => 'required|string|max:100',
-            // 'department' => 'required|string|max:100',
+            'faculty' => 'required|string|max:100',
+            'department' => 'required|string|max:100',
             'level' => 'required|integer',
             'password' => 'required|string|min:8|confirmed',
         ]);
