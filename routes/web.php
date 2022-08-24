@@ -35,12 +35,14 @@ Route::post('/user/vote/fetch','UserVoteController@fetch')->name('candidate.fetc
 Route::get('/user/results', 'UserHomeController@results')->name('user.results');
 
 Route::resource('admin/users','AdminUserController');
-Route::post('admin/users/fetch','AdminUserController@fetch')->name('dept.fetch');
-
 Route::resource('/admin/candidates','AdminCandidateController');
 Route::resource('/admin/office','AdminOfficeController');
 Route::resource('/admin/setup','AdminSetupController');
 Route::resource('/admin/votes','AdminVotesController');
+
+Route::get('/admin/dept', 'DepartmentController@create')->name('dept.create');
+Route::post('/admin/dept/store', 'DepartmentController@store')->name('dept.store');
+Route::post('/admin/users/fetch','AdminUserController@fetch')->name('dept.fetch');
 Route::post('/admin/votes', 'AdminVotesController@store')->name("votes.store");
 
 // Route::get('users', 'UsersController@index')->name('index');

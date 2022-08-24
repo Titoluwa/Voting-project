@@ -17,12 +17,22 @@ class AdminCandidateController extends Controller
     
     public function index()
     {
+        $office = Office::first();
         $offices = Office::all();
         $users = User::where('role', 2)->orderBy('last_name','asc')->get(); //all user that is not admin
         $election_year = ElectionYear::where('status', 1)->first(); // only the set year will display
-        $setyear = ElectionYear::where('status', 1)->pluck('id')->first();
+        if($election_year == null)
+        {
+            $election_year = null;
+            $setyear = null;            
+        } else
+        {
+            $election_year = $election_year;
+            $setyear = ElectionYear::where('status', 1)->pluck('id')->first();
+        }
         $candidates = Candidate::where('election_year_id', $setyear)->get();
-        return view('admin/candidates/index', compact('offices','candidates','users', 'election_year'));
+        
+        return view('admin/candidates/index', compact('office', 'offices','candidates','users', 'election_year'));
     }
     
     public function store(Request $request)

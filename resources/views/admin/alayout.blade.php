@@ -23,6 +23,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('dept.create')}}" class="nav-link link-dark">
+                        <i class="fa fa-university"></i> Departments
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('office.index') }}" class="nav-link link-dark">
                         <i class="fa fa-user-tie"></i> Offices
                         </a>
@@ -32,7 +37,7 @@
                         <i class="fa fa-user-friends"></i> Candidates
                         </a>
                     </li>
-                    <!-- <li class="nav-item dropright">
+                    {{--  <li class="nav-item dropright">
                         <a id="navbarDropdown" class="nav-link link-dark text-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <i class="fa fa-user-tag"></i> Positions
                         </a>
@@ -44,7 +49,7 @@
                                 <i class="fa fa-user-friends"></i> Candidates
                                 </a>
                             </div>
-                    </li> -->
+                    </li> --}}
                     <li>
                         <a href="{{ route('votes.index')}}" class="nav-link link-dark">
                         <i class="fa fa-poll"></i> Votes

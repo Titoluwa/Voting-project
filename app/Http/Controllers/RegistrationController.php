@@ -30,9 +30,12 @@ class RegistrationController extends Controller
     }
     public function store(Request $request)
     {
-        $user = User::create($this->validateRequest()); 
+        $user = User::create($this->validateRequest());
+        $user->role = 1;
         $user->last_name = Str::ucfirst($request->last_name);
         $user->first_name = Str::ucfirst($request->first_name);
+        $user->faculty = 'Faculty';
+        $user->department = 'Department';
         $user->password = Hash::make($request->password);
         $user->save();
 
@@ -47,8 +50,8 @@ class RegistrationController extends Controller
             'email' => 'required|email|max:30|unique:users',
             'last_name' => 'required|string|max:100',
             'first_name' => 'required|string|max:100',
-            'faculty' => 'required|string|max:100',
-            'department' => 'required|string|max:100',
+            // 'faculty' => 'required|string|max:100',
+            // 'department' => 'required|string|max:100',
             'level' => 'required|integer',
             'password' => 'required|string|min:8|confirmed',
         ]);

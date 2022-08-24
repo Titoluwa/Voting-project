@@ -20,12 +20,23 @@ class AdminVotesController extends Controller
         $offices = Office::all();
 
         $election_year = ElectionYear::where('status', 1)->first(); // only the set year will display
-        $setyear = ElectionYear::where('status', 1)->pluck('id')->first();
+
+        if($election_year == null)
+        {
+            $election_year = null;
+            $setyear = null;            
+        } else
+        {
+            $election_year = $election_year;
+            $setyear = ElectionYear::where('status', 1)->pluck('id')->first();
+        }
 
         $votes = Votes::where('election_year_id', $setyear)->get();
         $candidates = Candidate::where('election_year_id', $setyear)->get();
         $winners = Candidate::where('election_year_id', $setyear)->where('success_flag', 1)->get();
-        return view('admin/votes/index', compact('votes','offices', 'candidates', 'election_year', 'winners'));
+
+
+        return view('admin/votes/index', compact('votes', 'offices', 'candidates', 'election_year', 'winners'));
     }
     public function store(Request $request)
     {
